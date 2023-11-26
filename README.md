@@ -6,14 +6,14 @@
 
 ## How to make this script run on start-up on MacOS
 
-### Firstly intall all requirements required for this script to run properly
+### STEP 1: intall all requirements required for this script to run properly
 
 ```bash
 pip install -r requirements.txt
 ```
-* NOTE: You have to be in script folder|
+* NOTE: You have to be in script folder
 
-### Secondly you have to create a .plist file in ~/Library/LaunchAgents/ 
+### STEP 2: you have to create a .plist file in ~/Library/LaunchAgents/ 
 
 ```bash 
 echo '<?xml version="1.0" encoding="UTF-8"?>\n<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">\n<plist version="1.0">\n<dict>\n    <key>Label</key>\n    <string>com.user.yourscript</string>\n    <key>ProgramArguments</key>\n    <array>\n        <string>/usr/bin/python3</string>\n        <string>/path/to/your/script.py</string>\n    </array>\n    <key>RunAtLoad</key>\n    <true/>\n</dict>\n</plist>' > ~/Library/LaunchAgents/com.user.downloads_filter.plist 
@@ -39,3 +39,30 @@ echo '<?xml version="1.0" encoding="UTF-8"?>\n<!DOCTYPE plist PUBLIC "-//Apple//
   * Extension for rest folder should be set as ```ALL_OTHER```
   * Proper example of ```.env``` file you can see in repository
 
+## How to make this script run on start-up on Windows
+
+### STEP 1: intall all requirements required for this script to run properly
+
+```bat
+pip install -r requirements.txt
+```
+* NOTE: You have to be in script folder
+
+### STEP 2: you have to create a .bat file
+```bat
+@echo off
+C:\path\to\your\script.py
+pause
+```
+ * replace ```path\to\your\script.py``` with actual path to this script on your system
+
+### STEP 3: find the Path to Your Startup Folder
+
+* for the current user's Startup folder, the path is usually C:\Users\YourUsername\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup.
+* replace YourUsername with your actual Windows username
+### STEP 4: run in cmd command down below to copy ```.bat``` file to use this script on start-up 
+```bat
+copy C:\path\to\run_script.bat "C:\Users\[YourUsername]\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
+```
+* ```C:\path\to\run_script.bat``` change this to actual script path
+* ```[YourUsername]``` change this to your username
