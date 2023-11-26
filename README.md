@@ -1,4 +1,4 @@
-## Python Downloads Folder Sorter
+# Python Downloads Folder Sorter
 
 * creates folders specified in .env file
 * sorts them according to extensions assigned to folder in .env file
@@ -6,14 +6,14 @@
 
 ## How to make this script run on start-up on MacOS
 
-# Firstly intall all requirements required for this script to run properly
+### Firstly intall all requirements required for this script to run properly
 
 ```bash
 pip install -r requirements.txt
 ```
 * NOTE: You have to be in script folder|
 
-# Secondly you have to create a .plist file in ~/Library/LaunchAgents/ 
+### Secondly you have to create a .plist file in ~/Library/LaunchAgents/ 
 
 ```bash 
 echo '<?xml version="1.0" encoding="UTF-8"?>\n<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">\n<plist version="1.0">\n<dict>\n    <key>Label</key>\n    <string>com.user.yourscript</string>\n    <key>ProgramArguments</key>\n    <array>\n        <string>/usr/bin/python3</string>\n        <string>/path/to/your/script.py</string>\n    </array>\n    <key>RunAtLoad</key>\n    <true/>\n</dict>\n</plist>' > ~/Library/LaunchAgents/com.user.downloads_filter.plist 
@@ -22,8 +22,9 @@ echo '<?xml version="1.0" encoding="UTF-8"?>\n<!DOCTYPE plist PUBLIC "-//Apple//
 
 * Then accept any permissions popup's
 
-## How set-up the script for yourself's preferences
-# All preferences and settings are stored in ```.env``` file and you can change them to fulfill your needs
+### How set-up the script for yourself's preferences
+
+#### All preferences and settings are stored in ```.env``` file and you can change them to fulfill your needs
 
 * **DOWNLOADS_PATH** - path to the folder you want to sort
 
